@@ -29,35 +29,10 @@ class StudentController {
   }
 
 
-//   private final StudentRepository repository;
-
-//   StudentController(StudentRepository repository) {
-//     this.repository = repository;
-//   }
-
-
-  // Aggregate root
-//   // tag::get-aggregate-root[]
-//   @GetMapping("/students")
-//   List<Student> all() {
-//     return repository.findAll();
-//   }
-  // end::get-aggregate-root[]
-
   @PostMapping("/students")
   Student newStudent(@RequestBody Student newStudent) {
     return repository.save(newStudent);
   }
-
-
-  // Single item
-  
-//   @GetMapping("/students/{id}")
-//   Student one(@PathVariable Long id) {
-    
-//     return repository.findById(id)
-//       .orElseThrow(() -> new StudentNotFoundException(id));
-//   }
 
 
   @PutMapping("/students/{id}")
@@ -82,7 +57,6 @@ class StudentController {
 
 
 
-// ...
 
 @GetMapping("/students/{id}")
 public EntityModel<Student> one(@PathVariable Long id) {
@@ -113,4 +87,3 @@ CollectionModel<EntityModel<Student>> all() {
 }
 
 }
-
